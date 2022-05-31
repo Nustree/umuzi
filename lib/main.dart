@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:umuzi/app.dart';
-
-import 'amadeus.dart';
+import 'package:umuzi/ui/app.dart';
 
 void main() {
-  Amadeus amadeus = Amadeus();
-  amadeus.getHotelOffers();
+  runApp(const UmuziApp());
 }
