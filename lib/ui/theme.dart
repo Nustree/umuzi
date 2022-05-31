@@ -11,20 +11,19 @@ ColorScheme umuziColorScheme() {
 }
 
 TextTheme umuziTextTheme() {
-  const headlineColor = Color(0xFFE5BA05);
   const textTheme = TextTheme(
       headline1:
-          TextStyle(fontSize: 36, letterSpacing: 0.75, color: headlineColor),
+          TextStyle(fontSize: 36, letterSpacing: 0.75,),
       headline2:
-          TextStyle(fontSize: 32, letterSpacing: 0.5, color: headlineColor),
+          TextStyle(fontSize: 32, letterSpacing: 0.5,),
       headline3:
-          TextStyle(fontSize: 30, letterSpacing: 0.25, color: headlineColor),
+          TextStyle(fontSize: 30, letterSpacing: 0.25,),
       headline4:
-          TextStyle(fontSize: 28, letterSpacing: 0.75, color: headlineColor),
+          TextStyle(fontSize: 28, letterSpacing: 0.75,),
       headline5:
-          TextStyle(fontSize: 24, letterSpacing: 0.75, color: headlineColor),
+          TextStyle(fontSize: 24, letterSpacing: 0.75,),
       headline6:
-          TextStyle(fontSize: 20, letterSpacing: 0.75, color: headlineColor),
+          TextStyle(fontSize: 20, letterSpacing: 0.75,),
       bodyText1: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
