@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:umuzi/app.dart';
+import 'package:umuzi/ui/app.dart';
 
 import 'package:umuzi/main.dart';
 

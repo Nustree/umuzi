@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:umuzi/discover/header/greeting_card.dart';
+import 'greeting_card.dart';
 
 class DiscoverPage extends StatelessWidget {
   const DiscoverPage({Key? key}) : super(key: key);

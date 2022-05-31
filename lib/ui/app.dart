@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:umuzi/discover/discover_page.dart';
-import 'package:umuzi/theme.dart';
+import 'package:umuzi/ui/discover/discover_page.dart';
+import 'package:umuzi/ui/theme.dart';
 
 class UmuziApp extends StatelessWidget {
   const UmuziApp({Key? key}) : super(key: key);
