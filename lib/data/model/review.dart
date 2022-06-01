@@ -1,6 +1,6 @@
 class Review {
-  final String author;
-  final String relativeTime;
+  final String? author;
+  final String? relativeTime;
   final String? profilePhotoUrl;
   final String? text;
 
