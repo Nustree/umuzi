@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:umuzi/data/model/util.dart';
 import 'package:umuzi/data/provider/places_api.dart';
 import '../model/place.dart';
@@ -37,6 +38,6 @@ class PlacesRepository {
   /// [maxHeight] Required parameter - The maximum height of the photo.
   ///
   /// [maxWidth] Required parameter - The maximum width of the photo.
-  Future<Uint8List?> getPhotoOfPlace(String photoReference, int maxHeight, int maxWidth) async =>
-    await _api.getPhotoOfPlace(photoReference, maxHeight, maxWidth);
+  Future<String?> getPhotoOfPlace(String photoReference, int maxHeight, int maxWidth) async =>
+    await _api.getPhotoUrlOfPlace(photoReference, maxHeight, maxWidth);
 }

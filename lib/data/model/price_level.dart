@@ -3,5 +3,6 @@ enum PriceLevel {
   inexpensive,
   moderate,
   expensive,
-  veryExpensive
+  veryExpensive,
+  none
 }
