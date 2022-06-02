@@ -2,35 +2,35 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:umuzi/bloc/places_list/place_type.dart';
-import 'package:umuzi/data/repository/places_repository.dart';
+import 'package:umuzi/data/repository/places_of_type_repository.dart';
 
 import '../../data/model/place.dart';
 
-part 'places_list_state.dart';
+part 'places_of_type_state.dart';
 
 /// Facilitates retrieving a list of [Place].
 ///
 /// Consists of four states:
 ///
-/// - [PlacesListInitial]
+/// - [PlacesOfTypeInitial]
 ///
-/// - [PlacesListLoadInProgress]
+/// - [PlacesOfTypeLoadInProgress]
 ///
-/// - [PlacesListLoadSuccess]
+/// - [PlacesOfTypeLoadSuccess]
 ///
-/// - [PlacesListLoadFailure]
-class PlacesListCubit extends Cubit<PlacesListState> {
+/// - [PlacesOfTypeLoadFailure]
+class PlacesOfType extends Cubit<PlacesOfTypeState> {
   /// Repository to fetch data about places.
-  final PlacesRepository _repository;
+  final PlacesOfTypeRepository _repository;
 
-  PlacesListCubit(this._repository) : super(PlacesListInitial());
+  PlacesOfType(this._repository) : super(PlacesOfTypeInitial());
 
   /// Attempts to retrieve the list of places.
   ///
   /// [type] Required parameter - The type of place to query for.
   void fetchPlaces(PlaceType type) async {
     // Indicate that the data is being fetched.
-    emit(PlacesListLoadInProgress());
+    emit(PlacesOfTypeLoadInProgress());
 
     // Fetch the places from the repository.
     final places = await _repository.getPlacesOfType(type.name);
@@ -39,9 +39,9 @@ class PlacesListCubit extends Cubit<PlacesListState> {
 
     // Only load data when the list is not empty, else emit failure state.
     if (places != null) {
-      emit(PlacesListLoadSuccess(places));
+      emit(PlacesOfTypeLoadSuccess(places));
     } else {
-      emit(const PlacesListLoadFailure("Error occurred whilst trying to fetch data."));
+      emit(const PlacesOfTypeLoadFailure("Error occurred whilst trying to fetch data."));
     }
   }
 }
