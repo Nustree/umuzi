@@ -1,17 +1,17 @@
-part of 'places_list_cubit.dart';
+part of 'places_of_type_cubit.dart';
 
-abstract class PlacesListState extends Equatable{
-  const PlacesListState();
+abstract class PlacesOfTypeState extends Equatable{
+  const PlacesOfTypeState();
 }
 
-class PlacesListInitial extends PlacesListState {
+class PlacesOfTypeInitial extends PlacesOfTypeState {
   @override
   // TODO: implement props
   List<Object?> get props => throw [];
 }
 
 /// The state when a request for the data has been made.
-class PlacesListLoadInProgress extends PlacesListState {
+class PlacesOfTypeLoadInProgress extends PlacesOfTypeState {
   @override
   // TODO: implement props
   List<Object?> get props => [];
@@ -19,9 +19,9 @@ class PlacesListLoadInProgress extends PlacesListState {
 }
 
 /// The state when the list of places has been fetched successfully.
-class PlacesListLoadSuccess extends PlacesListState {
+class PlacesOfTypeLoadSuccess extends PlacesOfTypeState {
   final List<Place>? places;
-  const PlacesListLoadSuccess(this.places);
+  const PlacesOfTypeLoadSuccess(this.places);
 
   @override
   // TODO: implement props
@@ -29,9 +29,9 @@ class PlacesListLoadSuccess extends PlacesListState {
 }
 
 /// The state when an error occurs within fetch the list of places.
-class PlacesListLoadFailure extends PlacesListState {
+class PlacesOfTypeLoadFailure extends PlacesOfTypeState {
   final String errorMessage;
-  const PlacesListLoadFailure(this.errorMessage);
+  const PlacesOfTypeLoadFailure(this.errorMessage);
 
   @override
   // TODO: implement props

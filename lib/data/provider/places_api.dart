@@ -1,10 +1,12 @@
 import 'dart:typed_data';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_maps_webservice/places.dart';
 
 /// A data provider that fetches data from the Google Places API.
 /// It is automatically set to fetch data from Bulawayo, starting from the centre of Byo
 /// and spreading with a radius of 20km.
+@protected
 class PlacesAPI {
   late GoogleMapsPlaces _googlePlace;
   final Location _centerOfBulawayo = Location(lat: -20.147893, lng: 28.57025);
