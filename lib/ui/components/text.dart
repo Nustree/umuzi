@@ -11,7 +11,7 @@ class HeadlineText1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final headlineColor = textColor ?? Theme.of(context).colorScheme.primary;
+    final headlineColor = textColor ?? Theme.of(context).colorScheme.secondary;
     return BorderedText(
       strokeColor: Colors.black,
       strokeWidth: 2.0,
@@ -31,7 +31,7 @@ class BodyText1 extends StatelessWidget {
   final Color? textColor;
 
   /// if [textColor] is null then the default text color is applied.
-  const BodyText1({Key? key, this.textColor = const Color(0xFFE5BA05), required this.text}) : super(key: key);
+  const BodyText1({Key? key, this.textColor, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
