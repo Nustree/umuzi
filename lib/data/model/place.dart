@@ -10,10 +10,10 @@ class Place {
   final String? name;
   final PriceLevel? priceLevel;
   final String? address;
-  double? rating;
+  final double? rating;
   final String? photoReference;
 
-  Place({required this.placeId, required this.name, required this.priceLevel, required this.address, required this.rating,
+  const Place({required this.placeId, required this.name, required this.priceLevel, required this.address, required this.rating,
     required this.photoReference});
 }
 

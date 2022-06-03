@@ -1,26 +1,33 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:umuzi/ui/components/border.dart';
-import 'package:umuzi/ui/components/rating_card.dart';
-import 'package:umuzi/ui/components/text.dart';
-import 'package:umuzi/ui/theme.dart';
+import 'package:umuzi/data/model/place.dart';
+import '../../data/model/price_level.dart';
+import '../components/border.dart';
+import '../components/price_level_card.dart';
+import '../components/rating_chip.dart';
+import '../components/text.dart';
+import '../theme.dart';
 
-class ExploreMoreSection extends StatelessWidget {
-  const ExploreMoreSection({Key? key}) : super(key: key);
+class PlaceCard extends StatelessWidget {
+  final Place place;
+  /// Whether or not the pricing chip should be included
+  final bool withPricing;
+  const PlaceCard({Key? key, required this.place, this.withPricing = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final containerWidth = MediaQuery.of(context).size.width;
     return Container(
-      width: containerWidth / 2.2,
+      width: containerWidth / 2.5,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
           border: mediumContainerBorder(Colors.black),
           color: Theme.of(context).colorScheme.background,
-          borderRadius: BorderRadius.all(mediumContainerRadius())),
+          borderRadius: const BorderRadius.all(mediumContainerRadius)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
+          // Place photo
           Image.asset(
             'assets/place_photo_example.jpg',
             fit: BoxFit.cover,
@@ -32,27 +39,35 @@ class ExploreMoreSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Place name
-                const BodyText(
-                  text: "Holiday Inn",
+                BodyText(
+                  place.name,
                   bodyStyleNumber: 1,
                   textColor: darkGreen,
                   highEmphasis: true,
                 ),
                 // Place address
-                const BodyText(
-                  text: "Minerton Drive",
+                 BodyText(
+                  place.address,
                   bodyStyleNumber: 2,
                   textColor: darkGreen,
                 ),
 
                 const SizedBox(height: 16,),
 
+                // Have extra chip for pricing
+                (withPricing)
+                    ?
                 // Rating
-                Row(
-                  children: const [
-                    RatingCard(rating: 4.2),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    PriceLevelChip(place.priceLevel),
+                    const SizedBox(height: 4,),
+                    IntrinsicWidth(child: RatingChip(place.rating)),
                   ],
                 )
+                    :
+                IntrinsicWidth(child: RatingChip(place.rating)),
               ],
             ),
           )

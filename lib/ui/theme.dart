@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const darkGreen = Color(0xFF064728);
+const lowEmphasisGreen = Color(0x88064728);
 
 ColorScheme umuziColorScheme() {
   return const ColorScheme.light(

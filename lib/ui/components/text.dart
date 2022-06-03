@@ -1,9 +1,12 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../theme.dart';
 
 /// Text widget which is styled using any Headline style.
 class HeadlineText extends StatelessWidget {
-  final String text;
+  final String? text;
   final Color? textColor;
 
   /// The headline style number that should be used, e.g. Headline 1 or Headline 2.
@@ -12,7 +15,7 @@ class HeadlineText extends StatelessWidget {
   final int headlineStyleNumber;
 
   /// if [textColor] is null then the default text color is applied.
-  const HeadlineText({Key? key, required this.text, required this.headlineStyleNumber, this.textColor}) : super(key: key);
+  const HeadlineText(this.text, {Key? key, required this.headlineStyleNumber, this.textColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,7 @@ class HeadlineText extends StatelessWidget {
       strokeColor: Colors.black,
       strokeWidth: 2.0,
       child: Text(
-        text,
+        text ?? "",
         style: headlineStyle.copyWith(
           color: headlineColor,
         ),
@@ -67,7 +70,7 @@ class HeadlineText extends StatelessWidget {
 
 /// Text widget which is styled using any Body style.
 class BodyText extends StatelessWidget {
-  final String text;
+  final String? text;
   final Color? textColor;
   /// Whether to embolden the text so as to highlight it.
   final bool highEmphasis;
@@ -78,7 +81,7 @@ class BodyText extends StatelessWidget {
   final int bodyStyleNumber;
 
   /// if [textColor] is null then the default text color is applied.
-  const BodyText({Key? key, this.textColor, required this.text, required this.bodyStyleNumber, this.highEmphasis = false}) : super(key: key);
+  const BodyText(this.text, {Key? key, this.textColor, required this.bodyStyleNumber, this.highEmphasis = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -103,11 +106,33 @@ class BodyText extends StatelessWidget {
     }
 
     return Text(
-      text,
+      text ?? "",
       style: bodyStyle.copyWith(
         color: bodyColor,
         fontWeight: highEmphasis ? FontWeight.bold : FontWeight.normal,
       ),
     );
+  }
+}
+
+/// Useful when the text is smaller than the body font style.
+class SmallText extends StatelessWidget {
+  final String? text;
+  final bool highEmphasis;
+  const SmallText(this.text, {Key? key, this.highEmphasis = false}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+        style: GoogleFonts.openSans(
+        textStyle: TextStyle(
+        fontWeight: highEmphasis ? FontWeight.bold : FontWeight.w600,
+        fontSize: 12,
+        color: darkGreen,
+    )
+    ),
+    child: Text(
+      text ?? ""
+    ));
   }
 }
