@@ -54,6 +54,20 @@ extension GeometryExtension on Geometry {
   }
 }
 
+extension PriceLevelExtension on domain.PriceLevel {
+  /// Short description of the pricing level.
+  String toDescription() {
+    if (this == domain.PriceLevel.veryExpensive) {
+      return "Very expensive";
+    } else if (this == domain.PriceLevel.none) {
+      return "No pricing";
+    }
+
+    // Capitalize the first letter.
+    return name.substring(0, 1).toUpperCase() + name.substring(1);
+  }
+}
+
 /// Map an integer level for the price level of a place to a [PriceLevel] enum.
 domain.PriceLevel fromLevel(PriceLevel? level) {
 

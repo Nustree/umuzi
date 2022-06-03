@@ -23,7 +23,9 @@ class UmuziApp extends StatelessWidget {
         textTheme: umuziTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: const DiscoverPage(),
+      home: const Scaffold(
+        body: DiscoverPage(),
+      ),
     );
   }
 }

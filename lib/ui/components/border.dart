@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Border used to decorate medium-sized containers.
 Border mediumContainerBorder(Color color) {
-  return Border.all(width: 2.0, color: color);
+  return Border.all(width: 1.5, color: color);
 }
 
 /// Border used to decorate small-sized containers.
@@ -11,11 +11,7 @@ Border smallContainerBorder(Color color) {
 }
 
 /// Common radius for medium-sized containers.
-Radius mediumContainerRadius() {
-  return const Radius.circular(15);
-}
+const mediumContainerRadius = Radius.circular(10);
 
 /// Common radius for small-sized containers.
-Radius smallContainerRadius() {
-  return const Radius.circular(5);
-}
+const smallContainerRadius = Radius.circular(5);
